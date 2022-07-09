@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<!-- <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> -->
+	<!-- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd"> -->
+        
+	<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <context:annotation-config/>
+
+		<bean id="airtel" class="com.SpringMVCPractice.Airtel">
+			<constructor-arg name="name" value="Airtel" />
+		</bean>
+
+		<bean id="idea1" class="com.SpringMVCPractice.Idea">
+			<constructor-arg name="name" value="Idea"></constructor-arg>
+		</bean>
+
+		<bean id="idea2" class="com.SpringMVCPractice.Idea">
+			<constructor-arg name="name" value="Idea"></constructor-arg>
+		</bean>
+
+		<bean id="Ravi" class="com.SpringMVCPractice.User">
+			<property name="Id" value="Ravi"></property>
+		</bean>
+
+		<bean id="Teja" class="com.SpringMVCPractice.User">
+			<!-- <property name="Id" value="Teja"></property> <property name="sim" 
+				ref="airtel"></property> -->
+			<constructor-arg name="Id" value="Teja" />
+			<constructor-arg name="sim" ref="idea1" /><!-- ref attribute 
+				is used when the bean is already created in the xml -->
+			<!-- <property name="sim"> <bean class="com.SpringMVCPractice.Airtel"/>bean 
+				attribute is used when the bean is not created already in the xml </property> -->
+		</bean>
+
+<!-- 		<bean id="autowireuser"
+			class="com.SpringMVCPractice.AutowireUser" autowire="constructor"></bean> -->
+			
+			<bean id="autowireuser"	class="com.SpringMVCPractice.AutowireUser"/>
+
+		<!-- more bean definitions go here -->
+
+	</beans>
